@@ -31,7 +31,7 @@
   width: 75%;
 }
     </style>
-
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/seedrandom/2.3.10/seedrandom.min.js></script>
   </head>
   <body>
         <div class="container">
@@ -119,13 +119,17 @@
                             };
         
                             var min=1; 
-                            var max=1189+1;  
+                            var max=1189+1; 
+
+                            var a = new Date();
+                            a.setDate((a.getDate()-((a.getDay()+3)%7)));
+                            Math.seedrandom(a.toDateString());
                             var random = Math.floor(Math.random() * (+max - +min)) + +min; 
                                  
                             for(var key in dict) {
                               var value = dict[key];
                               if (value >= random) {
-                                document.write(`<h1 class="display-3" style="font-size: 7vw">${key} ${random}</h1>`);  
+                                document.write(`<h1 class="display-3" style="font-size: 6vw">${key} ${random}</h1>`);  
                                 break;
                               }
                               random -= value;
@@ -133,9 +137,9 @@
         
                         </script> 
                          
-                          
                          <p class="lead" style="font-size: 3vw">O que este capítulo fala pra você?</p>
                        </div>
+                       <p>Um capítulo diferente sorteado a cada quinta-feira.</p>
                     </div>
                   </div>
                 </div>
